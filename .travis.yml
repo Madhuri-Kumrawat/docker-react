@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mady/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run mady/docker-react npm run test -- --coverage
